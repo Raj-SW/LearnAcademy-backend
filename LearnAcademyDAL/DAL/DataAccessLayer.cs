@@ -27,7 +27,8 @@ namespace LearnAcademy.DAL
             }
             catch (SqlException ex)
             {
-                throw ex;
+                Console.WriteLine(ex.ToString());
+                //throw ex;
             }
         }
         public void OpenConnection()

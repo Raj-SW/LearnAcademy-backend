@@ -29,7 +29,7 @@ namespace LearnAcademy.DAL
             }
             return resultList;
         }
-        public async Task<List<T>> GetDataWithConditionsAsync<T>(string query, List<SqlParameter> parameters = null) where T : new()
+        public async Task<List<T>> GetDataWithConditionsAsync<T>(string query, List<SqlParameter>? parameters = null) where T : new()
         {
             DataAccessLayer dataAccessLayer = new DataAccessLayer();
             List<T> resultList = new List<T>();
@@ -79,6 +79,7 @@ namespace LearnAcademy.DAL
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.ToString());
                     transaction.Rollback();
                     return false;
                 }

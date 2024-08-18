@@ -12,5 +12,14 @@ namespace LearnAcademy.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+
+        public RegistrationDTO(string firstName, string lastName, string email, string pasword) 
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+            Password = pasword;
+        }
+
     }
 }
