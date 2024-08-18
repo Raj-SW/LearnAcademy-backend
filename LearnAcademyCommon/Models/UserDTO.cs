@@ -14,13 +14,13 @@ namespace LearnAcademyCommon.Models
         public string Email { get; set; }
         public string Role { get; set; }
 
-        public UserDTO(string email, string userName, string firstName, string lastName, string role)
-        {
-            Email = email;
-            UserName = userName;
-            FirstName = firstName;
-            LastName = lastName;
-            Role = role;
-        }
+        //public UserDTO(string email, string userName, string firstName, string lastName, string role)
+        //{
+        //    Email = email;
+        //    UserName = userName;
+        //    FirstName = firstName;
+        //    LastName = lastName;
+        //    Role = role;
+        //}
     }
 }

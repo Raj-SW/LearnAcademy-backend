@@ -1,5 +1,7 @@
 ﻿using LearnAcademy.BusinessLayer;
+using LearnAcademy.DAL;
 using LearnAcademy.Models;
+using LearnAcademyBL.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnAcademy.Controllers
@@ -8,24 +10,25 @@ namespace LearnAcademy.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-      
-        public AuthenticationController()
+        private readonly IAuthenticationBL _authenticationBL;
+        public AuthenticationController(IAuthenticationBL authenticationBL)
         {
-            
+            _authenticationBL = authenticationBL;
         }
 
         [HttpPost("register")]
-        public IActionResult Register(RegistrationDTO registrationDTO)
-        {
+        public async Task<IActionResult> Register(RegistrationDTO registrationDTO)
+        { 
+            var result = await _authenticationBL.Register(registrationDTO);
             
             return Ok(); 
         }
 
         [HttpPost("login")]
-        public IActionResult Login(LoginDTO loginDTO)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
-
-            return Ok();
+            var result = await _authenticationBL.Login(loginDTO);
+            return Ok(result);
         }
     }
 }

@@ -1,4 +1,15 @@
+using LearnAcademy.BusinessLayer;
+using LearnAcademy.Controllers;
+using LearnAcademy.DAL;
+using LearnAcademyBL.Interfaces;
+using LearnAcademyDAL.Interfaces;
+using System.ComponentModel;
+using Unity;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IAuthenticationDAL, AuthenticationDAL>();
+builder.Services.AddScoped<IAuthenticationBL, AuthenticationBL>();
 
 // Add services to the container.
 builder.Services.AddCors(options =>

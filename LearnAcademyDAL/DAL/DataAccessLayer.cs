@@ -11,7 +11,7 @@ namespace LearnAcademy.DAL
 
         public DataAccessLayer()
         {
-            connectionString = "Data Source=LAPTOP-4M1J5GRF;Inital Catalog=LearningAcademy; Integrated Security=true";
+            connectionString = "Data Source=localhost;Database=LearningAcademy; Trusted_Connection=True";
             connection = new SqlConnection(connectionString);
             OpenConnection();
         }

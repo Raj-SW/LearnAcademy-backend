@@ -1,13 +1,27 @@
-﻿using LearnAcademy.Models;
+﻿using LearnAcademy.DAL;
+using LearnAcademy.Models;
+using LearnAcademyBL.Interfaces;
 using LearnAcademyCommon.Models;
+using LearnAcademyDAL.Interfaces;
 
 namespace LearnAcademy.BusinessLayer
 {
     public class AuthenticationBL : IAuthenticationBL
     {
-        public UserDTO Login(string username, string password)
+        private readonly IAuthenticationDAL _authenticationDAL;
+        public AuthenticationBL(IAuthenticationDAL authenticationDAL) 
         {
-            throw new NotImplementedException();
+            _authenticationDAL = authenticationDAL;
+        }
+
+        public async Task<bool> Register(RegistrationDTO registrationDTO)
+        {
+            return await _authenticationDAL.RegisterUser(registrationDTO);
+        }
+
+        public async Task<UserDTO> Login(LoginDTO loginDTO)
+        {
+            return await _authenticationDAL.Login(loginDTO);
         }
 
         public bool LogOut()
@@ -15,9 +29,5 @@ namespace LearnAcademy.BusinessLayer
             throw new NotImplementedException();
         }
 
-        public bool Register(RegistrationDTO registrationDTO)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
